@@ -1,10 +1,10 @@
 package pl.hostel.manager.exception;
 
-public class PersonNotFoundException extends RuntimeException{
+public class ClientNotFoundException extends RuntimeException{
 
 	private static final long serialVersionUID = 1L;
 
-	public PersonNotFoundException(String message) {
+	public ClientNotFoundException(String message) {
 		super(message);
 	}
 }

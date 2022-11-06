@@ -23,8 +23,8 @@ public class RoomExtension {
 	private int numberOfBeds;
 	private String descriptionShort;
 	private String DescriptionLong;
-	//@OneToMany(mappedBy = "room_extension")
-	//private Set<Photo> photos;
+	@OneToMany(mappedBy = "roomExtension")
+	private Set<Photo> photos;
 	private String telelphoneNumber;
 	
 }

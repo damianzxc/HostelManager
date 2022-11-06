@@ -19,6 +19,6 @@ public class Photo {
 	private long sizeY;
 	private String format;
 	private String imageUrl;
-	//@ManyToOne
-	//private RoomExtension roomExtension;
+	@ManyToOne
+	private RoomExtension roomExtension;
 }
