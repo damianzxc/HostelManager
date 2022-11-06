@@ -3,6 +3,8 @@ package pl.hostel.manager.service;
 import java.util.List;
 import java.util.UUID;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,7 @@ import pl.hostel.manager.model.Person;
 import pl.hostel.manager.repository.PersonRepository;
 
 @Service
+@Transactional
 public class PersonService {
 
 	private final PersonRepository repository;
