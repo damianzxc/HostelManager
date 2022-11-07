@@ -2,8 +2,6 @@ package pl.hostel.manager.controller;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,11 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import pl.hostel.manager.model.Client;
 import pl.hostel.manager.service.ClientService;
 
-@Resource
+@RestController
 @RequestMapping("/clients")
 public class ClientController {
 
@@ -34,7 +33,7 @@ private final ClientService clientService;
 	}
 	
 	@GetMapping("/find/{id}")
-	public ResponseEntity<Client> getAllClients(@PathVariable("id") Long id) {
+	public ResponseEntity<Client> findClientById(@PathVariable("id") Long id) {
 		Client client = clientService.findClientById(id);
 		return new ResponseEntity<>(client, HttpStatus.OK);
 	}
@@ -46,7 +45,7 @@ private final ClientService clientService;
 	}
 	
 	@PutMapping("/update")
-	public ResponseEntity<Client> updatePerson(@RequestBody Client client) {
+	public ResponseEntity<Client> updateClient(@RequestBody Client client) {
 		Client updatedClient = clientService.updateClient(client);
 		return new ResponseEntity<>(updatedClient, HttpStatus.OK);
 	}
