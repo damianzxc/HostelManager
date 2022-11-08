@@ -1,7 +1,5 @@
 package pl.hostel.manager.model;
 
-import java.util.Date;
-
 import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
