@@ -1,5 +1,6 @@
 package pl.hostel.manager.model;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -26,5 +27,9 @@ public class RoomExtension {
 	@OneToMany(mappedBy = "roomExtension")
 	private Set<Photo> photos;
 	private String telelphoneNumber;
-	
+	private double pricePerDay;
+	// dodatkowa dopłata za każdą osobę
+	private double surchargePerPerson;
+	// maksymalna ilość gości
+	private int maxPersonsCount;
 }
