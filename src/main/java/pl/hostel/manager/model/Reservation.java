@@ -36,5 +36,7 @@ public class Reservation {
 	private boolean reservationConfirmed;
 	private boolean reservationCancelled;
 	private String note;
-	private String clientCredentials;
+	private String clientName;
+	private String clientSurname;
+	private String clientTelephone;
 }
