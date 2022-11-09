@@ -1,20 +1,16 @@
 package pl.hostel.manager.model.dto;
 
+import java.util.Map;
+
 public class RoomOccupancyDto {
 
-	private int vacant;
-	private int occupied;
-	
-	public int getVacant() {
-		return vacant;
+	private Map<String, Integer> roomOccupancy;
+
+	public Map<String, Integer> getRoomOccupancy() {
+		return roomOccupancy;
 	}
-	public void setVacant(int vacant) {
-		this.vacant = vacant;
-	}
-	public int getOccupied() {
-		return occupied;
-	}
-	public void setOccupied(int occupied) {
-		this.occupied = occupied;
+
+	public void setRoomOccupancy(Map<String, Integer> roomOccupancy) {
+		this.roomOccupancy = roomOccupancy;
 	}
 }

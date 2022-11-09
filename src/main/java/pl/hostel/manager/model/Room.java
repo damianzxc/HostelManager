@@ -16,9 +16,8 @@ public class Room {
 	private Long id;
 	@Column(nullable = false)
 	private String number;
-	@OneToOne @JoinColumn(name = "room_id", nullable = false)
+	@OneToOne
 	private RoomExtension roomExtension;
 	@OneToOne
 	private RoomStatus roomStatus;
-
 }

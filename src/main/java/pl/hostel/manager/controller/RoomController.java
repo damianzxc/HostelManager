@@ -22,13 +22,7 @@ public class RoomController {
 	@GetMapping("/occupancy-level")
 	public ResponseEntity<RoomOccupancyDto> getRoomsOccupancy() {
 		RoomOccupancyDto roomOccupancy = roomService.getRoomOccupancy();
-		return new ResponseEntity<>(roomOccupancy, HttpStatus.FOUND);
+		return new ResponseEntity<>(roomOccupancy, HttpStatus.OK);
 	}
-	
-//	@GetMapping("/occupancy")
-//	public ResponseEntity<RoomOccupancyDto> getVacantRoomsNumber() {
-//		RoomOccupancyDto roomOccupancy = roomService.getRoomsOccupancy();
-//		return new ResponseEntity<>(roomOccupancy, HttpStatus.OK);
-//	}
 	
 }

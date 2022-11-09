@@ -1,35 +1,29 @@
 package pl.hostel.manager.service;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pl.hostel.manager.model.dto.RoomOccupancyDto;
-import pl.hostel.manager.repository.RoomRepository;
+import pl.hostel.manager.repository.jdbc.RoomRepositoryJDBC;
 
 @Service
 @Transactional
 public class RoomService {
 
-	private final RoomRepository roomRepository;
+	private final RoomRepositoryJDBC roomRepository;
 	
 	@Autowired
-	public RoomService(RoomRepository roomRepository) {
+	public RoomService(RoomRepositoryJDBC roomRepository) {
 		this.roomRepository = roomRepository;
-	}
-	
-	public int getVacantRoomsNumber() {
-		return roomRepository.getVacantRoomsNumber();
-	}
-	
-	public int getOccupiedRoomsNumber() {
-		return roomRepository.getOccupiedRoomsNumber();
 	}
 
 	public RoomOccupancyDto getRoomOccupancy() {
-		RoomOccupancyDto roomOccupancy = new RoomOccupancyDto();
-		roomOccupancy.setVacant(roomRepository.getOccupiedRoomsNumber());
-		return roomOccupancy;
+		RoomOccupancyDto roomOccupancyDto = roomRepository.getOccupancyDto();
+		return roomOccupancyDto;
 	}
 }
