@@ -26,4 +26,19 @@ public class Client {
 	private String country;
 	@OneToMany(mappedBy = "client")
 	private List<Rental> rentals;
+	
+	public Client(Long id, String name, String surname, String telephone, String address, String city, String country,
+			List<Rental> rentals) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+		this.telephone = telephone;
+		this.address = address;
+		this.city = city;
+		this.country = country;
+		this.rentals = rentals;
+	}
+	
+	
 }

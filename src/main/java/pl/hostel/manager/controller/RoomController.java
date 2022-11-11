@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import pl.hostel.manager.model.dto.RoomOccupancyDto;
+import pl.hostel.manager.model.dto.RoomOccupancyDTO;
 import pl.hostel.manager.service.RoomService;
 
 @RestController
@@ -20,8 +20,8 @@ public class RoomController {
 	}
 	
 	@GetMapping("/occupancy-level")
-	public ResponseEntity<RoomOccupancyDto> getRoomsOccupancy() {
-		RoomOccupancyDto roomOccupancy = roomService.getRoomOccupancy();
+	public ResponseEntity<RoomOccupancyDTO> getRoomsOccupancy() {
+		RoomOccupancyDTO roomOccupancy = roomService.getRoomOccupancy();
 		return new ResponseEntity<>(roomOccupancy, HttpStatus.OK);
 	}
 	

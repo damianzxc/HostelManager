@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.hostel.manager.model.Reservation;
 import pl.hostel.manager.service.ReservationService;
 
-@RestController
-@RequestMapping("/reservation")
+//@RestController
+//@RequestMapping("/reservation")
 public class ReservationController {
 
 	private final ReservationService reservationService;
