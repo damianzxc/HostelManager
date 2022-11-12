@@ -6,12 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Entity @Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Entity
 public class Hostel {
 	
 	@Id
@@ -24,4 +19,74 @@ public class Hostel {
 	private String telephone;
 	private String wwwUrl;
 	private String description;
+	
+	public Hostel() {}
+
+	public Hostel(Long id, String name, String address, String city, String telephone, String wwwUrl,
+			String description) {
+		this.id = id;
+		this.name = name;
+		this.address = address;
+		this.city = city;
+		this.telephone = telephone;
+		this.wwwUrl = wwwUrl;
+		this.description = description;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getTelephone() {
+		return telephone;
+	}
+
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
+
+	public String getWwwUrl() {
+		return wwwUrl;
+	}
+
+	public void setWwwUrl(String wwwUrl) {
+		this.wwwUrl = wwwUrl;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
 }
