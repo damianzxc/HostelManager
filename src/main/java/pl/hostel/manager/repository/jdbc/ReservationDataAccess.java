@@ -33,8 +33,32 @@ public class ReservationDataAccess implements ReservationDAO {
 
 	@Override
 	public Reservation saveReservation(Reservation reservation) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "INSERT INTO hostel_manager.reservation "
+				+ "(agreed_peoples_count"
+				+ ", agreed_value_per_day"
+				+ ", client_name"
+				+ ", client_surname"
+				+ ", client_telephone"
+				+ ", date_from"
+				+ ", date_to"
+				+ ", note"
+				+ ", room_number"
+				+ ", status_id)"
+				+ " VALUES(?,?,?,?,?,?,?,?,?,?)";
+		jdbcTemplate.update(sql,
+				reservation.getAgreedPeoplesCount(),
+				reservation.getAgreedValuePerDay(),
+				reservation.getClientName(),
+				reservation.getClientSurname(),
+				reservation.getClientTelephone(),
+				reservation.getDateFrom(),
+				reservation.getDateTo(),
+				reservation.getNote(),
+				reservation.getRoomNumber(),
+				reservation.getStatus().getId());
+		//TODO: take the id from new reservation && take ReservationStatus status and info
+		// and send it back with reservation return
+		return reservation;
 	}
 
 	@Override
