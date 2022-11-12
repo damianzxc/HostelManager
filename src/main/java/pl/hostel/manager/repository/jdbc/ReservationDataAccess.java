@@ -32,7 +32,7 @@ public class ReservationDataAccess implements ReservationDAO {
 	}
 
 	@Override
-	public Reservation save(Reservation reservation) {
+	public Reservation saveReservation(Reservation reservation) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -18,7 +18,7 @@ public class ReservationService {
 	}
 	
 	public Reservation addReservation(Reservation reservation) {
-		return reservationDAO.save(reservation);
+		return reservationDAO.saveReservation(reservation);
 	}
 	
 	public List<Reservation> getAllReservations() {
@@ -30,7 +30,7 @@ public class ReservationService {
 	};
 	
 	public Reservation updateReservation(Reservation reservation) {
-		return reservationDAO.save(reservation);
+		return null;
 	}
 	
 	public Reservation findReservationByClientName(String clientName) {

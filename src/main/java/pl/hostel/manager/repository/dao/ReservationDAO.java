@@ -9,7 +9,7 @@ public interface ReservationDAO {
 
 	int deleteReservationById(Long id);
 	Optional<Reservation> findReservationByClientName(String name);
-	Reservation save(Reservation reservation);
+	Reservation saveReservation(Reservation reservation);
 	List<Reservation> getAllReservations();
 	List<Reservation> getAllActiveReservations();
 }
