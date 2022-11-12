@@ -21,7 +21,7 @@ public class ClientDataAccess implements ClientDAO {
 
 	@Override
 	public List<Client> getAllClients() {
-		String sql = "SELECT * FROM client";
+		String sql = "SELECT * FROM hostel_manager.client";
 		return jdbcTemplate.query(sql, new ClientRowMapper());
 	}
 
