@@ -18,26 +18,25 @@ public class Reservation {
 	private String roomNumber;
 	private double agreedValuePerDay;
 	private int agreedPeoplesCount;
-	private boolean reservationConfirmed;
-	private boolean reservationCancelled;
+	@OneToOne
+	private ReservationStatus status;
 	private String note;
 	private String clientName;
 	private String clientSurname;
 	private String clientTelephone;
 	
 	public Reservation() {}
-	
+
 	public Reservation(Long id, Date dateFrom, Date dateTo, String roomNumber, double agreedValuePerDay,
-			int agreedPeoplesCount, boolean reservationConfirmed, boolean reservationCancelled, String note,
-			String clientName, String clientSurname, String clientTelephone) {
+			int agreedPeoplesCount, ReservationStatus status, String note, String clientName, String clientSurname,
+			String clientTelephone) {
 		this.id = id;
 		this.dateFrom = dateFrom;
 		this.dateTo = dateTo;
 		this.roomNumber = roomNumber;
 		this.agreedValuePerDay = agreedValuePerDay;
 		this.agreedPeoplesCount = agreedPeoplesCount;
-		this.reservationConfirmed = reservationConfirmed;
-		this.reservationCancelled = reservationCancelled;
+		this.status = status;
 		this.note = note;
 		this.clientName = clientName;
 		this.clientSurname = clientSurname;
@@ -92,20 +91,12 @@ public class Reservation {
 		this.agreedPeoplesCount = agreedPeoplesCount;
 	}
 
-	public boolean isReservationConfirmed() {
-		return reservationConfirmed;
+	public ReservationStatus getStatus() {
+		return status;
 	}
 
-	public void setReservationConfirmed(boolean reservationConfirmed) {
-		this.reservationConfirmed = reservationConfirmed;
-	}
-
-	public boolean isReservationCancelled() {
-		return reservationCancelled;
-	}
-
-	public void setReservationCancelled(boolean reservationCancelled) {
-		this.reservationCancelled = reservationCancelled;
+	public void setStatus(ReservationStatus status) {
+		this.status = status;
 	}
 
 	public String getNote() {

@@ -11,4 +11,5 @@ public interface ReservationDAO {
 	Optional<Reservation> findReservationByClientName(String name);
 	Reservation save(Reservation reservation);
 	List<Reservation> findAll();
+	List<Reservation> getAllActive();
 }

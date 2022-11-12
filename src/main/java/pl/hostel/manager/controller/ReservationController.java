@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.hostel.manager.model.Reservation;
 import pl.hostel.manager.service.ReservationService;
 
-//@RestController
-//@RequestMapping("/reservation")
+@RestController
+@RequestMapping("/reservation")
 public class ReservationController {
 
 	private final ReservationService reservationService;
@@ -26,9 +26,15 @@ public class ReservationController {
 		this.reservationService = reservationService;
 	}
 	
-	@GetMapping("all")
+	@GetMapping("/all")
 	public ResponseEntity<List<Reservation>> getAllReservations() {
 		List<Reservation> reservations = reservationService.findAll();
+		return new ResponseEntity<>(reservations, HttpStatus.OK);
+	}
+	
+	@GetMapping("/all/active")
+	public ResponseEntity<List<Reservation>> getAllActiveReservations() {
+		List<Reservation> reservations = reservationService.getAllActive();
 		return new ResponseEntity<>(reservations, HttpStatus.OK);
 	}
 	

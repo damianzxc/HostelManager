@@ -25,6 +25,10 @@ public class ReservationService {
 		return reservationDAO.findAll();
 	}
 	
+	public List<Reservation> getAllActive() {
+		return reservationDAO.getAllActive();
+	};
+	
 	public Reservation updateReservation(Reservation reservation) {
 		return reservationDAO.save(reservation);
 	}
