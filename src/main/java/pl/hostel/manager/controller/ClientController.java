@@ -26,7 +26,7 @@ private final ClientService clientService;
 		this.clientService = clientService;
 	}
 	
-	@GetMapping("all")
+	@GetMapping("/all")
 	public ResponseEntity<List<Client>> getAllClients() {
 		List<Client> clients = clientService.findAllClients();
 		return new ResponseEntity<>(clients, HttpStatus.OK);

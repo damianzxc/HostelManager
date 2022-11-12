@@ -1,17 +1,11 @@
 package pl.hostel.manager.model;
 
 import java.util.Date;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Entity @Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Entity
 public class Bill {
 
 	@Id
@@ -28,4 +22,74 @@ public class Bill {
 	@ManyToOne
 	//@JoinColumn(name = "rental_id", nullable = false)
 	private Rental rental;
+	
+	public Bill () {}
+
+	public Bill(Long id, Room room, double billTotal, double payedValue, Set<BillItem> billItems, Date billStart,
+			Rental rental) {
+		this.id = id;
+		this.room = room;
+		this.billTotal = billTotal;
+		this.payedValue = payedValue;
+		this.billItems = billItems;
+		this.billStart = billStart;
+		this.rental = rental;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Room getRoom() {
+		return room;
+	}
+
+	public void setRoom(Room room) {
+		this.room = room;
+	}
+
+	public double getBillTotal() {
+		return billTotal;
+	}
+
+	public void setBillTotal(double billTotal) {
+		this.billTotal = billTotal;
+	}
+
+	public double getPayedValue() {
+		return payedValue;
+	}
+
+	public void setPayedValue(double payedValue) {
+		this.payedValue = payedValue;
+	}
+
+	public Set<BillItem> getBillItems() {
+		return billItems;
+	}
+
+	public void setBillItems(Set<BillItem> billItems) {
+		this.billItems = billItems;
+	}
+
+	public Date getBillStart() {
+		return billStart;
+	}
+
+	public void setBillStart(Date billStart) {
+		this.billStart = billStart;
+	}
+
+	public Rental getRental() {
+		return rental;
+	}
+
+	public void setRental(Rental rental) {
+		this.rental = rental;
+	}
+	
 }

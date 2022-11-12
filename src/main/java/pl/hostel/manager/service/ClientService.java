@@ -1,48 +1,43 @@
 package pl.hostel.manager.service;
 
 import java.util.List;
-import java.util.UUID;
 
-import javax.transaction.Transactional;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import pl.hostel.manager.exception.ClientNotFoundException;
+import pl.hostel.manager.exception.NotFoundException;
 import pl.hostel.manager.model.Client;
-import pl.hostel.manager.repository.ClientRepository;
+import pl.hostel.manager.repository.dao.ClientDAO;
 
 @Service
-@Transactional
 public class ClientService {
 
-	private final ClientRepository repository;
+	private final ClientDAO repository;
 	
-	@Autowired
-	public ClientService(ClientRepository repository) {
+	public ClientService(ClientDAO repository) {
 		this.repository = repository;
 	}
 	
 	public Client addClient(Client client) {
-		return repository.save(client);
+		return repository.addClient(client);
 	}
 	
 	public List<Client> findAllClients() {
-		return repository.findAll();
-	}
-	
-	public Client updateClient(Client client) {
-		return repository.save(client);
+		return repository.getAllClients();
 	}
 	
 	public Client findClientById(Long id) {
-		return repository.findClientById(id)
-				.orElseThrow(() -> new ClientNotFoundException("Client by id "+ id + " was not nound"));
+		return repository.getClientById(id)
+				.orElseThrow(() -> new NotFoundException("Client by id "+ id + " was not found."));
 	}
-	
+
+	public Client updateClient(Client client) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public void deleteClientById(Long id) {
-		repository.deleteClientById(id);
+		// TODO Auto-generated method stub
+		
 	}
-	
 	
 }

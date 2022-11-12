@@ -2,45 +2,44 @@ package pl.hostel.manager.service;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import pl.hostel.manager.exception.ClientNotFoundException;
-import pl.hostel.manager.model.Client;
+import pl.hostel.manager.exception.NotFoundException;
 import pl.hostel.manager.model.Reservation;
-import pl.hostel.manager.repository.ReservationRepository;
+import pl.hostel.manager.repository.dao.ReservationDAO;
 
 @Service
-@Transactional
 public class ReservationService {
 
-	private final ReservationRepository reservationRepository;
+	private final ReservationDAO reservationDAO;
 
-	@Autowired
-	public ReservationService(ReservationRepository reservationRepository) {
-		this.reservationRepository = reservationRepository;
+	public ReservationService(ReservationDAO reservationDAO) {
+		this.reservationDAO = reservationDAO;
 	}
 	
 	public Reservation addReservation(Reservation reservation) {
-		return reservationRepository.save(reservation);
+		return reservationDAO.saveReservation(reservation);
 	}
 	
-	public List<Reservation> findAll() {
-		return reservationRepository.findAll();
+	public List<Reservation> getAllReservations() {
+		return reservationDAO.getAllReservations();
 	}
+	
+	public List<Reservation> getAllActiveReservations() {
+		return reservationDAO.getAllActiveReservations();
+	};
 	
 	public Reservation updateReservation(Reservation reservation) {
-		return reservationRepository.save(reservation);
+		return null;
 	}
 	
 	public Reservation findReservationByClientName(String clientName) {
-		return reservationRepository.findReservationByClientName(clientName);
+		return reservationDAO.findReservationByClientName(clientName)
+				.orElseThrow(() -> new NotFoundException("Reservation by client name "+ clientName +" was not found."));
 	}
 	
 	public void deleteReservationById(Long id) {
-		reservationRepository.deleteReservationById(id);
+		reservationDAO.deleteReservationById(id);
 	}
 	
 }
