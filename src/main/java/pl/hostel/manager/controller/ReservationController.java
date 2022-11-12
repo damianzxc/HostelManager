@@ -28,13 +28,13 @@ public class ReservationController {
 	
 	@GetMapping("/all")
 	public ResponseEntity<List<Reservation>> getAllReservations() {
-		List<Reservation> reservations = reservationService.findAll();
+		List<Reservation> reservations = reservationService.getAllReservations();
 		return new ResponseEntity<>(reservations, HttpStatus.OK);
 	}
 	
 	@GetMapping("/all/active")
 	public ResponseEntity<List<Reservation>> getAllActiveReservations() {
-		List<Reservation> reservations = reservationService.getAllActive();
+		List<Reservation> reservations = reservationService.getAllActiveReservations();
 		return new ResponseEntity<>(reservations, HttpStatus.OK);
 	}
 	

@@ -21,12 +21,12 @@ public class ReservationService {
 		return reservationDAO.save(reservation);
 	}
 	
-	public List<Reservation> findAll() {
-		return reservationDAO.findAll();
+	public List<Reservation> getAllReservations() {
+		return reservationDAO.getAllReservations();
 	}
 	
-	public List<Reservation> getAllActive() {
-		return reservationDAO.getAllActive();
+	public List<Reservation> getAllActiveReservations() {
+		return reservationDAO.getAllActiveReservations();
 	};
 	
 	public Reservation updateReservation(Reservation reservation) {

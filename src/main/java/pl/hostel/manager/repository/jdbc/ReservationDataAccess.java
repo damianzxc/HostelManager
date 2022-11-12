@@ -38,7 +38,7 @@ public class ReservationDataAccess implements ReservationDAO {
 	}
 
 	@Override
-	public List<Reservation> findAll() {
+	public List<Reservation> getAllReservations() {
 		String sql = "SELECT * FROM hostel_manager.reservation r "
 				+ "LEFT JOIN hostel_manager.reservation_status rs "
 				+ "ON r.status_id = rs.id";
@@ -46,7 +46,7 @@ public class ReservationDataAccess implements ReservationDAO {
 	}
 
 	@Override
-	public List<Reservation> getAllActive() {
+	public List<Reservation> getAllActiveReservations() {
 		String sql = "SELECT r.id "
 				+ ", r.client_name "
 				+ ", r.client_surname "
