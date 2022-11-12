@@ -16,8 +16,8 @@ public class ActionService {
 		this.actionDAO = actionDAO;
 	}
 
-	public List<Action> getLastActions() {
-		return actionDAO.getLastActions();
+	public List<Action> getLastActions(int count) {
+		return actionDAO.getLastActions(count);
 	}
 
 	public List<Action> getAllActions() {

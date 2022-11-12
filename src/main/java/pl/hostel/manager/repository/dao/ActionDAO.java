@@ -7,5 +7,5 @@ import pl.hostel.manager.model.Action;
 public interface ActionDAO {
 
 	List<Action> getAllActions();
-	List<Action> getLastActions();
+	List<Action> getLastActions(int count);
 }
