@@ -14,15 +14,18 @@ public class Room {
 	@OneToOne
 	private RoomExtension roomExtension;
 	@OneToOne
-	private RoomStatus roomStatus;
+	private Status status;
+	@OneToOne
+	private RoomType roomType;
 	
 	public Room() {}
 
-	public Room(Long id, String number, RoomExtension roomExtension, RoomStatus roomStatus) {
+	public Room(Long id, String number, RoomExtension roomExtension, Status status, RoomType roomType) {
 		this.id = id;
 		this.number = number;
 		this.roomExtension = roomExtension;
-		this.roomStatus = roomStatus;
+		this.status = status;
+		this.roomType = roomType;
 	}
 
 	public Long getId() {
@@ -49,12 +52,20 @@ public class Room {
 		this.roomExtension = roomExtension;
 	}
 
-	public RoomStatus getRoomStatus() {
-		return roomStatus;
+	public Status getStatus() {
+		return status;
 	}
 
-	public void setRoomStatus(RoomStatus roomStatus) {
-		this.roomStatus = roomStatus;
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	public RoomType getRoomType() {
+		return roomType;
+	}
+
+	public void setRoomType(RoomType roomType) {
+		this.roomType = roomType;
 	}
 
 }
