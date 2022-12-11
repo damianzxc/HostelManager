@@ -17,7 +17,8 @@ public class BillItem {
 	@Column(nullable = false, updatable=false)
 	private Long id;
 	private Date sellDate;
-	private double value;
+	private double netValue;
+	private double grossValue;
 	private int taxValue;
 	private double grossPayedValue;
 	private double netPayedValue;
@@ -28,11 +29,13 @@ public class BillItem {
 	
 	public BillItem() {}
 
-	public BillItem(Long id, Date sellDate, double value, int taxValue, double grossPayedValue, double netPayedValue,
-			boolean itemCleared, Bill bill) {
+	public BillItem(Long id, Date sellDate, double netValue, double grossValue, int taxValue, double grossPayedValue,
+			double netPayedValue, boolean itemCleared, Bill bill) {
+		super();
 		this.id = id;
 		this.sellDate = sellDate;
-		this.value = value;
+		this.netValue = netValue;
+		this.grossValue = grossValue;
 		this.taxValue = taxValue;
 		this.grossPayedValue = grossPayedValue;
 		this.netPayedValue = netPayedValue;
@@ -56,12 +59,20 @@ public class BillItem {
 		this.sellDate = sellDate;
 	}
 
-	public double getValue() {
-		return value;
+	public double getNetValue() {
+		return netValue;
 	}
 
-	public void setValue(double value) {
-		this.value = value;
+	public void setNetValue(double netValue) {
+		this.netValue = netValue;
+	}
+
+	public double getGrossValue() {
+		return grossValue;
+	}
+
+	public void setGrossValue(double grossValue) {
+		this.grossValue = grossValue;
 	}
 
 	public int getTaxValue() {

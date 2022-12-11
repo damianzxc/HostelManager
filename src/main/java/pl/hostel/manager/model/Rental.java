@@ -12,9 +12,12 @@ public class Rental extends Reservation{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false, updatable=false)
 	private Long id;
-	private double totalPay;
-	private double totalTax;
-	private double netPay;
+	private double grossDayFee;
+	private boolean withBreakfast;
+	private int breakfastCount;
+	private double breakfastValue;
+	private int personsCount;
+	private String note;
 	@OneToMany(mappedBy="rental")
 	private Set<Bill> bills;
 	@ManyToOne
@@ -24,12 +27,16 @@ public class Rental extends Reservation{
 	
 	public Rental() {}
 
-	public Rental(Long id, double totalPay, double totalTax, double netPay, Set<Bill> bills, Client client,
-			Reservation reservation) {
+	public Rental(Long id, double grossDayFee, boolean withBreakfast, int breakfastCount, double breakfastValue,
+			int personsCount, String note, Set<Bill> bills, Client client, Reservation reservation) {
+		super();
 		this.id = id;
-		this.totalPay = totalPay;
-		this.totalTax = totalTax;
-		this.netPay = netPay;
+		this.grossDayFee = grossDayFee;
+		this.withBreakfast = withBreakfast;
+		this.breakfastCount = breakfastCount;
+		this.breakfastValue = breakfastValue;
+		this.personsCount = personsCount;
+		this.note = note;
 		this.bills = bills;
 		this.client = client;
 		this.reservation = reservation;
@@ -43,28 +50,52 @@ public class Rental extends Reservation{
 		this.id = id;
 	}
 
-	public double getTotalPay() {
-		return totalPay;
+	public double getGrossDayFee() {
+		return grossDayFee;
 	}
 
-	public void setTotalPay(double totalPay) {
-		this.totalPay = totalPay;
+	public void setGrossDayFee(double grossDayFee) {
+		this.grossDayFee = grossDayFee;
 	}
 
-	public double getTotalTax() {
-		return totalTax;
+	public boolean isWithBreakfast() {
+		return withBreakfast;
 	}
 
-	public void setTotalTax(double totalTax) {
-		this.totalTax = totalTax;
+	public void setWithBreakfast(boolean withBreakfast) {
+		this.withBreakfast = withBreakfast;
 	}
 
-	public double getNetPay() {
-		return netPay;
+	public int getBreakfastCount() {
+		return breakfastCount;
 	}
 
-	public void setNetPay(double netPay) {
-		this.netPay = netPay;
+	public void setBreakfastCount(int breakfastCount) {
+		this.breakfastCount = breakfastCount;
+	}
+
+	public double getBreakfastValue() {
+		return breakfastValue;
+	}
+
+	public void setBreakfastValue(double breakfastValue) {
+		this.breakfastValue = breakfastValue;
+	}
+
+	public int getPersonsCount() {
+		return personsCount;
+	}
+
+	public void setPersonsCount(int personsCount) {
+		this.personsCount = personsCount;
+	}
+
+	public String getNote() {
+		return note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
 	}
 
 	public Set<Bill> getBills() {

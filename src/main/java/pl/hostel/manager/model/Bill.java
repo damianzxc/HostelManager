@@ -12,25 +12,31 @@ public class Bill {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false, updatable=false)
 	private Long id;
-	private double billTotal;
-	private double payedValue;
+	private double netBillTotal;
+	private double grossBillTotal;
+	private double grossPayedValue;
+	private Date billStart;
+	private Date billEnd;
+	private boolean billCleared;
+	@ManyToOne
+	private Rental rental;
 	@OneToMany(mappedBy = "bill")
 	private Set<BillItem> billItems;
-	private Date billStart;
-	@ManyToOne
-	//@JoinColumn(name = "rental_id", nullable = false)
-	private Rental rental;
 	
 	public Bill () {}
 
-	public Bill(Long id, double billTotal, double payedValue, Set<BillItem> billItems, Date billStart,
-			Rental rental) {
+	public Bill(Long id, double netBillTotal, double grossBillTotal, double grossPayedValue, Date billStart,
+			Date billEnd, boolean billCleared, Rental rental, Set<BillItem> billItems) {
+		super();
 		this.id = id;
-		this.billTotal = billTotal;
-		this.payedValue = payedValue;
-		this.billItems = billItems;
+		this.netBillTotal = netBillTotal;
+		this.grossBillTotal = grossBillTotal;
+		this.grossPayedValue = grossPayedValue;
 		this.billStart = billStart;
+		this.billEnd = billEnd;
+		this.billCleared = billCleared;
 		this.rental = rental;
+		this.billItems = billItems;
 	}
 
 	public Long getId() {
@@ -41,28 +47,28 @@ public class Bill {
 		this.id = id;
 	}
 
-	public double getBillTotal() {
-		return billTotal;
+	public double getNetBillTotal() {
+		return netBillTotal;
 	}
 
-	public void setBillTotal(double billTotal) {
-		this.billTotal = billTotal;
+	public void setNetBillTotal(double netBillTotal) {
+		this.netBillTotal = netBillTotal;
 	}
 
-	public double getPayedValue() {
-		return payedValue;
+	public double getGrossBillTotal() {
+		return grossBillTotal;
 	}
 
-	public void setPayedValue(double payedValue) {
-		this.payedValue = payedValue;
+	public void setGrossBillTotal(double grossBillTotal) {
+		this.grossBillTotal = grossBillTotal;
 	}
 
-	public Set<BillItem> getBillItems() {
-		return billItems;
+	public double getGrossPayedValue() {
+		return grossPayedValue;
 	}
 
-	public void setBillItems(Set<BillItem> billItems) {
-		this.billItems = billItems;
+	public void setGrossPayedValue(double grossPayedValue) {
+		this.grossPayedValue = grossPayedValue;
 	}
 
 	public Date getBillStart() {
@@ -73,6 +79,22 @@ public class Bill {
 		this.billStart = billStart;
 	}
 
+	public Date getBillEnd() {
+		return billEnd;
+	}
+
+	public void setBillEnd(Date billEnd) {
+		this.billEnd = billEnd;
+	}
+
+	public boolean isBillCleared() {
+		return billCleared;
+	}
+
+	public void setBillCleared(boolean billCleared) {
+		this.billCleared = billCleared;
+	}
+
 	public Rental getRental() {
 		return rental;
 	}
@@ -80,5 +102,13 @@ public class Bill {
 	public void setRental(Rental rental) {
 		this.rental = rental;
 	}
-	
+
+	public Set<BillItem> getBillItems() {
+		return billItems;
+	}
+
+	public void setBillItems(Set<BillItem> billItems) {
+		this.billItems = billItems;
+	}
+
 }
