@@ -12,8 +12,6 @@ public class Bill {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false, updatable=false)
 	private Long id;
-	@OneToOne
-	private Room room;
 	private double billTotal;
 	private double payedValue;
 	@OneToMany(mappedBy = "bill")
@@ -25,10 +23,9 @@ public class Bill {
 	
 	public Bill () {}
 
-	public Bill(Long id, Room room, double billTotal, double payedValue, Set<BillItem> billItems, Date billStart,
+	public Bill(Long id, double billTotal, double payedValue, Set<BillItem> billItems, Date billStart,
 			Rental rental) {
 		this.id = id;
-		this.room = room;
 		this.billTotal = billTotal;
 		this.payedValue = payedValue;
 		this.billItems = billItems;
@@ -42,14 +39,6 @@ public class Bill {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Room getRoom() {
-		return room;
-	}
-
-	public void setRoom(Room room) {
-		this.room = room;
 	}
 
 	public double getBillTotal() {
