@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class ReservationStatus {
+public class Status {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,9 +17,9 @@ public class ReservationStatus {
 	private String status;
 	private String info;
 	
-	public ReservationStatus () {}
+	public Status () {}
 
-	public ReservationStatus(Long id, String status, String info) {
+	public Status(Long id, String status, String info) {
 		this.id = id;
 		this.status = status;
 		this.info = info;

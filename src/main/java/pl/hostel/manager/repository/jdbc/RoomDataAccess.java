@@ -21,11 +21,11 @@ public class RoomDataAccess implements RoomDAO{
 	
 	@Override
 	public Optional<RoomOccupancyDTO> getOccupancy() {
-		String sql = "SELECT rs.status, COUNT(*) as 'rooms_count' "
+		String sql = "SELECT s.status, COUNT(*) as 'rooms_count' "
 				+ "FROM hostel_manager.room r "
-				+ "LEFT JOIN hostel_manager.room_status rs "
-				+ "ON rs.id = r.room_status_id "
-				+ "GROUP BY r.room_status_id";
+				+ "LEFT JOIN hostel_manager.status s "
+				+ "ON s.id = r.status_id "
+				+ "GROUP BY r.status_id";
 		Map<String, Integer> roomsOccupancy = new HashMap<>();
 		jdbcTemplate.query(
 				sql, 

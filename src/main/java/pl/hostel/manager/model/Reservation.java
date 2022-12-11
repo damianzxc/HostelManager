@@ -19,7 +19,7 @@ public class Reservation {
 	private double agreedValuePerDay;
 	private int agreedPeoplesCount;
 	@OneToOne
-	private ReservationStatus status;
+	private Status status;
 	private String note;
 	private String clientName;
 	private String clientSurname;
@@ -28,7 +28,7 @@ public class Reservation {
 	public Reservation() {}
 
 	public Reservation(Long id, Date dateFrom, Date dateTo, String roomNumber, double agreedValuePerDay,
-			int agreedPeoplesCount, ReservationStatus status, String note, String clientName, String clientSurname,
+			int agreedPeoplesCount, Status status, String note, String clientName, String clientSurname,
 			String clientTelephone) {
 		this.id = id;
 		this.dateFrom = dateFrom;
@@ -91,11 +91,11 @@ public class Reservation {
 		this.agreedPeoplesCount = agreedPeoplesCount;
 	}
 
-	public ReservationStatus getStatus() {
+	public Status getStatus() {
 		return status;
 	}
 
-	public void setStatus(ReservationStatus status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
 import pl.hostel.manager.model.Reservation;
-import pl.hostel.manager.model.ReservationStatus;
+import pl.hostel.manager.model.Status;
 
 public class ReservationRowMapper implements RowMapper<Reservation>{
 
@@ -19,7 +19,7 @@ public class ReservationRowMapper implements RowMapper<Reservation>{
 				rs.getString("room_number"),
 				rs.getDouble("agreed_value_per_day"),
 				rs.getInt("agreed_peoples_count"),
-				new ReservationStatus(
+				new Status(
 						rs.getLong("status_id"),
 						rs.getString("status"),
 						rs.getString("info")
