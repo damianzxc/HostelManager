@@ -4,7 +4,6 @@ import java.util.Optional;
 
 import pl.hostel.manager.model.dto.OccupancyMapDTO;
 
-public interface RoomDAO {
-
+public interface BedDAO {
 	Optional<OccupancyMapDTO> getOccupancy();
 }
