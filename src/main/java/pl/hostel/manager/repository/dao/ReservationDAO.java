@@ -12,4 +12,6 @@ public interface ReservationDAO {
 	Reservation saveReservation(Reservation reservation);
 	List<Reservation> getAllReservations();
 	List<Reservation> getAllActiveReservations();
+	Optional<Reservation> findReservationById(Long id);
+
 }

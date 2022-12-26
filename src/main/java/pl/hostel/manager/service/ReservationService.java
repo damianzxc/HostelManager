@@ -41,5 +41,10 @@ public class ReservationService {
 	public void deleteReservationById(Long id) {
 		reservationDAO.deleteReservationById(id);
 	}
+
+	public Reservation findReservationById(Long id) {
+		return reservationDAO.findReservationById(id)
+				.orElseThrow(() -> new NotFoundException("Reservation by id "+ id +" was not found."));
+	}
 	
 }

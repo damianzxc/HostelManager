@@ -38,7 +38,13 @@ public class ReservationController {
 		return new ResponseEntity<>(reservations, HttpStatus.OK);
 	}
 	
-	@GetMapping("/find/{clientName}")
+	@GetMapping("/findById/{id}")
+	public ResponseEntity<Reservation> findReservationById(@PathVariable("id") Long id) {
+		Reservation reservation = reservationService.findReservationById(id);
+		return new ResponseEntity<>(reservation, HttpStatus.OK);
+	}
+	
+	@GetMapping("/findByName/{clientName}")
 	public ResponseEntity<Reservation> findReservationByClientName(@PathVariable("name") String name) {
 		Reservation reservation = reservationService.findReservationByClientName(name);
 		return new ResponseEntity<>(reservation, HttpStatus.OK);

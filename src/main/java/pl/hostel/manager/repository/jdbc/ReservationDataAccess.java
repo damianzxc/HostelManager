@@ -58,6 +58,7 @@ public class ReservationDataAccess implements ReservationDAO {
 				reservation.getStatus().getId());
 		//TODO: take the id from new reservation && take ReservationStatus status and info
 		// and send it back with reservation return
+		// https://docs.spring.io/spring-framework/docs/4.3.20.RELEASE/spring-framework-reference/html/jdbc.html
 		return reservation;
 	}
 
@@ -93,5 +94,16 @@ public class ReservationDataAccess implements ReservationDAO {
 				+ "OR rs.status = 'NOT_ANSWER'";
 		return jdbcTemplate.query(sql, new ReservationRowMapper());
 	}
+
+	@Override
+	public Optional<Reservation> findReservationById(Long id) {
+		String sql = "SELECT * FROM hostel_manager.reservation r "
+				+ "LEFT JOIN hostel_manager.status s "
+				+ "ON r.status_id = s.id "
+				+ "WHERE r.id = "+id;
+		List<Reservation> r = jdbcTemplate.query(sql, new ReservationRowMapper());
+		return Optional.of(r.get(0));
+	}
+
 
 }
